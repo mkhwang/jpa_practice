@@ -18,6 +18,9 @@
 ### 3-1. LOB을 읽을 때
 - JDBC 가 알아서 LOB을 읽어온다.
 - Hibernate에서 LOB(특히 PostgreSQL oid)는 JDBC의 Large Object API를 사용해서 트랜잭션 내에서만 읽을 수 있음 → 트랜잭션이 끝난 후에 접근하면 Unable to access lob stream 예외 발생
+- 트랜잭션이 끝난 후에 LOB을 읽으려면, `@Transactional(readOnly = true)` 를 사용해야 한다.
+- 그리고 auto commit 모드에서는 LOB을 읽을 수 없다.
+  - `Large Objects may not be used in auto-commit mode.`
 
 ### 3-2. update 시
 - LOB값을 update한 경우, 키값이 바뀌고 pg_largeobject 에 새로운 row가 생성되며 매핑된다.
