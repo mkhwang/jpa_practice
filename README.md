@@ -7,3 +7,5 @@
 ### 2. [QueryDsl Expressions](docs/querydls_expressions.md)
 
 ### 3. [Elasticsearch CD STRATEGY](docs/elasticsearch_cd_strategy.md)
+
+### 4. [Spring Data History](docs/spring_data_history.md)
