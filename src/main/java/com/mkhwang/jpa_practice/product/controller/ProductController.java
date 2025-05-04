@@ -2,6 +2,7 @@ package com.mkhwang.jpa_practice.product.controller;
 
 import com.mkhwang.jpa_practice.product.domain.Product;
 import com.mkhwang.jpa_practice.product.service.ProductDocumentService;
+import com.mkhwang.jpa_practice.product.service.ProductRankService;
 import com.mkhwang.jpa_practice.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ public class ProductController {
 
   private final ProductService productService;
   private final ProductDocumentService productDocumentService;
+  private final ProductRankService productRankService;
 
 
   @GetMapping("/api/products")
@@ -33,5 +35,12 @@ public class ProductController {
   public void searchProducts(@RequestParam String keyword) {
     productDocumentService.saveAllProducts();
     productDocumentService.searchProducts(keyword);
+  }
+
+
+  @GetMapping("/api/products/rank/set")
+  public boolean setRank() {
+    productRankService.setRank();
+    return true;
   }
 }
