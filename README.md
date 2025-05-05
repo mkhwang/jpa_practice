@@ -11,3 +11,5 @@
 ### 4. [Spring Data History](docs/spring_data_history.md)
 
 ### 5. [Redis ZSet](docs/redis_zset.md)
+
+### 6. [Large Scale Chat Service](docs/large_scale_chat_service.md)
