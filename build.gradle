@@ -30,6 +30,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
     runtimeOnly 'org.postgresql:postgresql:42.7.3'
 
     compileOnly 'org.projectlombok:lombok'
