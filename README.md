@@ -13,3 +13,5 @@
 ### 5. [Redis ZSet](docs/redis_zset.md)
 
 ### 6. [Large Scale Chat Service](docs/large_scale_chat_service.md)
+
+### 7. [MSA EVENT STRATEGY](docs/msa_event_strategy.md)
