@@ -15,3 +15,5 @@
 ### 6. [Large Scale Chat Service](docs/large_scale_chat_service.md)
 
 ### 7. [MSA EVENT STRATEGY](docs/msa_event_strategy.md)
+
+### 8. [Outbox Pattern](docs/outbox_pattern.md)
