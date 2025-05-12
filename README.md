@@ -17,3 +17,5 @@
 ### 7. [MSA EVENT STRATEGY](docs/msa_event_strategy.md)
 
 ### 8. [Outbox Pattern](docs/outbox_pattern.md)
+
+### 9. [Partitioning & Sharding](docs/database_partitioning_sharding.md)
