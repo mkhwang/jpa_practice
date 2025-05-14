@@ -19,3 +19,5 @@
 ### 8. [Outbox Pattern](docs/outbox_pattern.md)
 
 ### 9. [Partitioning & Sharding](docs/database_partitioning_sharding.md)
+
+### 10. [JPA Query Hint](docs/jpa_query_hint.md)
