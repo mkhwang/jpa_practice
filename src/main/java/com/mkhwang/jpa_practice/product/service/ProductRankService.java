@@ -1,6 +1,11 @@
 package com.mkhwang.jpa_practice.product.service;
 
 import com.mkhwang.jpa_practice.product.domain.Product;
+import com.mkhwang.jpa_practice.product.domain.dto.ProductMongo;
+import com.mkhwang.jpa_practice.product.domain.dto.ProductStock;
+import com.mkhwang.jpa_practice.product.repository.ProductMongoRepository;
+import com.mkhwang.jpa_practice.product.repository.ProductRedisDataRepository;
+import com.mkhwang.jpa_practice.product.repository.ProductRedisRepository;
 import com.mkhwang.jpa_practice.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.DefaultTypedTuple;
@@ -19,6 +24,9 @@ public class ProductRankService {
   private final RedisTemplate <String, Object> redisTemplate2;
   private final String rankKey= "productRank";
   private final ProductRepository productRepository;
+  private final ProductRedisDataRepository productRedisDataRepository;
+  private final ProductMongoRepository productMongoRepository;
+  private final ProductRedisRepository productRedisRepository;
 
   public void setRank() {
     List<Product> all = productRepository.findAll();
@@ -39,5 +47,12 @@ public class ProductRankService {
 
     Object o = redisTemplate2.opsForValue().get("product:3");
     System.out.println(o.toString());
+
+    all.forEach(
+            product -> {
+              productRedisRepository.save(new ProductStock(product.getId(), product.getId()*10 ));
+              productMongoRepository.save(new ProductMongo(product.getId(), product.getName(), product.getDescription()));
+            }
+    );
   }
 }
