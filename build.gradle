@@ -39,6 +39,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation("mysql:mysql-connector-java:8.0.33") // 또는 최신
 
     // query dsl
     implementation 'com.querydsl:querydsl-jpa:5.1.0:jakarta'

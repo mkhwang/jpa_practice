@@ -5,6 +5,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
 import java.util.List;
 
-public interface ProductDocumentRepository extends ElasticsearchRepository<ProductDocument, Long> {
-  List<ProductDocument> findByName(String name);
-}
+public interface ProductDocumentRepository {}
+//        extends ElasticsearchRepository<ProductDocument, Long> {
+//  List<ProductDocument> findByName(String name);
+//}

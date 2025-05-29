@@ -2,7 +2,7 @@ package com.mkhwang.jpa_practice.product.service;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import com.mkhwang.jpa_practice.product.domain.dto.ProductDocument;
-import com.mkhwang.jpa_practice.product.repository.ProductDocumentRepository;
+//import com.mkhwang.jpa_practice.product.repository.ProductDocumentRepository;
 import com.mkhwang.jpa_practice.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
@@ -19,21 +19,21 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductDocumentService {
   private final ProductRepository productRepository;
-  private final ProductDocumentRepository productDocumentRepository;
-  private final ElasticsearchOperations elasticsearchOperations;
+//  private final ProductDocumentRepository productDocumentRepository;
+//  private final ElasticsearchOperations elasticsearchOperations;
 
   @Transactional(readOnly = true)
   public void saveAllProducts() {
-    List<ProductDocument> list = productRepository.findAll().stream().map(
-            product -> {
-              ProductDocument productDocument = new ProductDocument();
-              productDocument.setId(product.getId());
-              productDocument.setName(product.getName());
-              productDocument.setDescription(product.getDescription());
-              return productDocument;
-            }
-    ).toList();
-    productDocumentRepository.saveAll(list);
+//    List<ProductDocument> list = productRepository.findAll().stream().map(
+//            product -> {
+//              ProductDocument productDocument = new ProductDocument();
+//              productDocument.setId(product.getId());
+//              productDocument.setName(product.getName());
+//              productDocument.setDescription(product.getDescription());
+//              return productDocument;
+//            }
+//    ).toList();
+//    productDocumentRepository.saveAll(list);
   }
 
 
@@ -64,16 +64,16 @@ public class ProductDocumentService {
             ))
             .build();
 
-    SearchHits<ProductDocument> hits = elasticsearchOperations.search(query, ProductDocument.class);
-    List<ProductDocument> list = hits.getSearchHits().stream()
-            .map(SearchHit::getContent)
-            .toList();
-    for (ProductDocument product : list) {
-      System.out.println("Product ID: " + product.getId());
-      System.out.println("Product Name: " + product.getName());
-      System.out.println("Product Description: " + product.getDescription());
-      System.out.println("------------------------------");
-    }
+//    SearchHits<ProductDocument> hits = elasticsearchOperations.search(query, ProductDocument.class);
+//    List<ProductDocument> list = hits.getSearchHits().stream()
+//            .map(SearchHit::getContent)
+//            .toList();
+//    for (ProductDocument product : list) {
+//      System.out.println("Product ID: " + product.getId());
+//      System.out.println("Product Name: " + product.getName());
+//      System.out.println("Product Description: " + product.getDescription());
+//      System.out.println("------------------------------");
+//    }
   }
 
 }

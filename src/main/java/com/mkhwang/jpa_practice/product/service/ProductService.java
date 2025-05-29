@@ -2,6 +2,7 @@ package com.mkhwang.jpa_practice.product.service;
 
 import com.mkhwang.jpa_practice.product.domain.Product;
 import com.mkhwang.jpa_practice.product.domain.QProduct;
+import com.mkhwang.jpa_practice.product.domain.dto.ProductGroupBy;
 import com.mkhwang.jpa_practice.product.repository.ProductRepository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.Expressions;
@@ -22,6 +23,15 @@ public class ProductService {
   public List<Product> getAllProducts() {
 
     this.replaceTestProduct();
+    List<ProductGroupBy> fetch = jpaQueryFactory.select(
+            Projections.constructor(
+                    ProductGroupBy.class,
+                    qProduct.name,
+                    qProduct.id.count()
+            )).from(qProduct).groupBy(qProduct.name)
+            .orderBy(OrderByNull.DEFAULT)
+            .fetch();
+    System.out.println(fetch);
     return productRepository.findAll();
   }
 
