@@ -20,9 +20,9 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ProductRankService {
-  private final RedisTemplate <String, String> redisTemplate;
-  private final RedisTemplate <String, Object> redisTemplate2;
-  private final String rankKey= "productRank";
+  private final RedisTemplate<String, String> redisTemplate;
+  private final RedisTemplate<String, Object> redisTemplate2;
+  private final String rankKey = "productRank";
   private final ProductRepository productRepository;
   private final ProductRedisDataRepository productRedisDataRepository;
   private final ProductMongoRepository productMongoRepository;
@@ -50,7 +50,7 @@ public class ProductRankService {
 
     all.forEach(
             product -> {
-              productRedisRepository.save(new ProductStock(product.getId(), product.getId()*10 ));
+              productRedisRepository.save(new ProductStock(product.getId(), product.getId() * 10));
               productMongoRepository.save(new ProductMongo(product.getId(), product.getName(), product.getDescription()));
             }
     );

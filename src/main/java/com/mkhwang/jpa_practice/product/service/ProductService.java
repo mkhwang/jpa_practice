@@ -24,11 +24,11 @@ public class ProductService {
 
     this.replaceTestProduct();
     List<ProductGroupBy> fetch = jpaQueryFactory.select(
-            Projections.constructor(
-                    ProductGroupBy.class,
-                    qProduct.name,
-                    qProduct.id.count()
-            )).from(qProduct).groupBy(qProduct.name)
+                    Projections.constructor(
+                            ProductGroupBy.class,
+                            qProduct.name,
+                            qProduct.id.count()
+                    )).from(qProduct).groupBy(qProduct.name)
             .orderBy(OrderByNull.DEFAULT)
             .fetch();
     System.out.println(fetch);

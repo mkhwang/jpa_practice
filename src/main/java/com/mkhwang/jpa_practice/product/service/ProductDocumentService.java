@@ -1,14 +1,9 @@
 package com.mkhwang.jpa_practice.product.service;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
-import com.mkhwang.jpa_practice.product.domain.dto.ProductDocument;
-//import com.mkhwang.jpa_practice.product.repository.ProductDocumentRepository;
 import com.mkhwang.jpa_practice.product.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -55,12 +50,12 @@ public class ProductDocumentService {
 
     NativeQuery query = NativeQuery.builder()
             .withQuery(q -> q.functionScore(fs -> fs
-                    .query(inner -> inner.bool(b -> b
-                            .should(s -> s.match(m -> m.field("id").query(keyword)))
-                            .should(s -> s.match(m -> m.field("name").query(keyword)))
-                            .should(s -> s.match(m -> m.field("description").query(keyword)))
+                            .query(inner -> inner.bool(b -> b
+                                            .should(s -> s.match(m -> m.field("id").query(keyword)))
+                                            .should(s -> s.match(m -> m.field("name").query(keyword)))
+                                            .should(s -> s.match(m -> m.field("description").query(keyword)))
 //                            .should(nastedQuery)
-                    ))
+                            ))
             ))
             .build();
 

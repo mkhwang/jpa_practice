@@ -36,11 +36,11 @@ public class ProductQueryService {
 
     NativeQuery query = NativeQuery.builder()
             .withQuery(q -> q.functionScore(fs -> fs
-                            .query(inner -> inner.bool(b -> b
-                                            .should(s -> s.match(m -> m.field("id").query(keyword)))
-                                            .should(s -> s.match(m -> m.field("name").query(keyword)))
-                                            .should(s -> s.match(m -> m.field("description").query(keyword)))
-                            ))
+                    .query(inner -> inner.bool(b -> b
+                            .should(s -> s.match(m -> m.field("id").query(keyword)))
+                            .should(s -> s.match(m -> m.field("name").query(keyword)))
+                            .should(s -> s.match(m -> m.field("description").query(keyword)))
+                    ))
             ))
             .build();
 
