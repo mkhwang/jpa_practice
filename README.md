@@ -23,3 +23,5 @@
 ### 10. [JPA Query Hint](docs/jpa_query_hint.md)
 
 ### 11. [Mysql FileSort](docs/mysql_filesort.md)
+
+### 12. [LATERAL AND GREATEST](docs/lateral_and_greatest.md)
