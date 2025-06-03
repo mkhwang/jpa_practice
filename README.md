@@ -25,3 +25,5 @@
 ### 11. [Mysql FileSort](docs/mysql_filesort.md)
 
 ### 12. [LATERAL AND GREATEST](docs/lateral_and_greatest.md)
+
+### 13. [INCREMENTAL SORT](docs/incremental_sort.md)
