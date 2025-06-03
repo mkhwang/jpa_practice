@@ -84,12 +84,21 @@ SET enable_incremental_sort = off;
 - EXPLAIN ANALYZE에서 Incremental Sort, Presorted Key 확인
 - 정렬 조건을 잘 설계하면, 완전 정렬 인덱스 없어도 성능 향상 가능
 
+
+## Additional Tips
+
+- 정렬(ORDER BY)은 단독으로 인덱스를 결정하는 게 아니라, WHERE 조건과 함께 판단
+- 즉, 조건에 따라 인덱스의 정렬 순서가 유효하지 않으면 → 정렬도 무효
+- 그래서 정렬 성능을 위해선 인덱스 설계 + WHERE 조건 + ORDER BY 순서가 잘 맞아야 한다!
+
+
 ## Conclusion
 
 > Incremental Sort는 PostgreSQL이 일부 정렬 조건만 인덱스로 만족할 때, 나머지를 효율적으로 처리하기 위한 핵심 성능 기능
 
 - ORDER BY 조건의 선두 컬럼이 인덱스에 포함되어 있으면 자동으로 적용될 수 있고,
 - 대용량 테이블의 정렬 성능을 수배 이상 개선할 수 있음
+
 
 ## 번외
 
