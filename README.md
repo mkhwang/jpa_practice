@@ -27,3 +27,5 @@
 ### 12. [LATERAL AND GREATEST](docs/lateral_and_greatest.md)
 
 ### 13. [INCREMENTAL SORT](docs/incremental_sort.md)
+
+### 13. [DATABASE JOIN](docs/database_join.md)
